@@ -23,8 +23,6 @@ client.connect((err) => {
     return console.error("Connection Error", err);
   }
     client.query("SELECT * FROM famous_people WHERE first_name=$1 OR last_name=$1", [inputFromUser], (err, result) => {
-    if (err) {
-      return console.error("error running query", err);
     }
     const person = result.rows[0];
     output(person.first_name, person.last_name, person.birthdate);
